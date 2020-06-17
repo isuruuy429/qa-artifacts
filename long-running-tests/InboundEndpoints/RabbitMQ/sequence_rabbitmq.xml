@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="sequence_rabbitmq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log level="custom">
+        <property name="rabbitmq_inbound_log" value="Picking the message from RabbitMQ Inbound Endpoint."/>
+    </log>
+</sequence>
