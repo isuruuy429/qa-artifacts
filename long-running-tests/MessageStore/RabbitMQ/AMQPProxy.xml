@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="AMQPProxy" startOnLoad="true" trace="enable" transports="rabbitmq" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <log level="full">
+                <property name="Log" value="Consuming from RabbitMQ store"/>
+            </log>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </target>
+    <parameter name="rabbitmq.exchange.name">exchange</parameter>
+    <parameter name="rabbitmq.queue.name">queue</parameter>
+    <parameter name="rabbitmq.connection.factory">AMQPConnectionFactory</parameter>
+</proxy>
