@@ -4,7 +4,7 @@
     <property name="proxyName" value="JMS_MS_Proxy1" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>
     <property name="message" xmlns:task="http://www.wso2.org/products/wso2commons/tasks">
         <request xmlns="">
-            <operation>Sending a message to JMS Store.</operation>
+            <operation>Message to ActiveMQ Store.</operation>
         </request>
     </property>
     <property name="injectTo" value="proxy" xmlns:task="http://www.wso2.org/products/wso2commons/tasks"/>

@@ -5,7 +5,7 @@
             <property name="FORCE_SC_ACCEPTED" scope="axis2" type="STRING" value="true"/>
             <property name="OUT_ONLY" scope="default" type="STRING" value="true"/>
             <log level="custom">
-                <property name="initialMsgProxy1" value="Sending the message to the JMS Store."/>
+                <property name="initialMsgProxy1" value="Sending the message to the ActiveMQ Store."/>
             </log>
             <store messageStore="JMSMS"/>
         </inSequence>

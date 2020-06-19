@@ -2,9 +2,10 @@
 <proxy name="JMS_MS_Proxy2" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
     <target>
         <inSequence>
-            <log level="custom">
-                <property name="Proxy2_Log" value="Picked the message from JMS Store."/>
+            <log level="full">
+                <property name="Proxy2_Log" value="Picked the message from ActiveMQ Store."/>
             </log>
+            <drop/>
         </inSequence>
         <outSequence/>
         <faultSequence/>
