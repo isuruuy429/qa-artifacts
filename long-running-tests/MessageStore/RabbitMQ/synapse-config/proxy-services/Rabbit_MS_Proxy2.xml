@@ -2,9 +2,10 @@
 <proxy name="Rabbit_MS_Proxy2" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
     <target>
         <inSequence>
-            <log level="custom">
+            <log level="full">
                 <property name="Proxy2_Log" value="Picked the message from RabbitMQ Store."/>
             </log>
+            <drop/>
         </inSequence>
         <outSequence/>
         <faultSequence/>
