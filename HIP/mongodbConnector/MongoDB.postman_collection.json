@@ -1,0 +1,337 @@
+{
+	"info": {
+		"_postman_id": "0f8b4e1e-e80d-4975-a6e1-14c4571aa6de",
+		"name": "MongoDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8290/mongo/insertMany",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dba1e4bf-6b2d-4c9d-82f8-5afd29104d26",
+						"exec": [
+							"//getting the response and convert it to json.",
+							"var reponseData = pm.response.json();",
+							"",
+							"//Testcase: Verify if InsertManyTest Operation return Successfull and statusCode of 200. ",
+							"pm.test(\"InsertManyTest\", function () {",
+							"    var result = reponseData.InsertManyResult;",
+							"    ",
+							"    pm.expect(result).to.eql(\"Successful\");",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"database\":\"users\", \n    \"uri\":\"mongodb://localhost:27017\",\n    \"collection\":\"NewIntake\", \n    \"documents\": [\n                    {\"name\": \"john\", \"age\":24, \"profession\":\"Dentist\"},\n                    {\"name\": \"Supun\", \"age\":33, \"profession\":\"Frontend Engineer\"},\n                    {\"name\": \"Yukthi\", \"age\":31, \"profession\":\"Farmer\"},\n                    {\"name\": \"Lasantha\", \"age\":49, \"profession\":\"Doctor\"},\n                    {\"name\": \"Hector\", \"age\":48, \"profession\":\"Singer\"},\n                    {\"name\": \"Leonardo\", \"age\":37, \"profession\":\"Actor\"}, \n                    {\"name\": \"Aqua\", \"age\":34, \"profession\":\"Singer\"},\n                    {\"name\": \"Rafael\", \"age\":33, \"profession\":\"Actor\"},\n                    {\"name\": \"Jane\", \"age\":33, \"profession\":\"Hotelier\"},\n                    {\"name\": \"Hector\", \"age\":48, \"profession\":\"Saxaphonist\"}\n                \n                ]\n                \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8290/mongo/insertMany",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8290",
+					"path": [
+						"mongo",
+						"insertMany"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8290/mongo/insertOne",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6f11fade-198a-40e4-8331-9673adab0867",
+						"exec": [
+							"//getting the response and convert it to json.",
+							"var reponseData = pm.response.json();",
+							"",
+							"//Testcase: Verify if InsertOneTest Operation return Successfull and statusCode of 200. ",
+							"pm.test(\"InsertOneTest\", function () {",
+							"    var result = reponseData.InsertOneResult;",
+							"    ",
+							"    pm.expect(result).to.eql(\"Successful\");",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"database\":\"users\", \n    \"uri\":\"mongodb://localhost:27017\",\n    \"collection\":\"NewIntake\", \n    \"document\": {\"name\": \"Deewi\", \"age\":5}\n                \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8290/mongo/insertOne",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8290",
+					"path": [
+						"mongo",
+						"insertOne"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8290/mongo/deleteOne",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"database\":\"users\", \n    \"uri\":\"mongodb://localhost:27017\",\n    \"collection\":\"NewIntake\", \n    \"query\": {\"name\":\"Deewi\"}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8290/mongo/deleteOne",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8290",
+					"path": [
+						"mongo",
+						"deleteOne"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8290/mongo/deleteMany",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"database\":\"users\", \n    \"uri\":\"mongodb://localhost:27017\",\n    \"collection\":\"NewIntake\",\n    \"query\":\n            {\n                \"profession\":\"Singer\"\n            } \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8290/mongo/deleteMany",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8290",
+					"path": [
+						"mongo",
+						"deleteMany"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8290/mongo/findOne",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "510cf691-d6b1-40de-9d62-20fb7271bef7",
+						"exec": [
+							"//getting the response and convert it to json.",
+							"var reponseData = pm.response.json();",
+							"",
+							"//Testcase: Verify if findOneTest Operation returns the correct name and statusCode of 200. ",
+							"pm.test(\"findOneTest\", function () {",
+							"    var result = reponseData.name;",
+							"    ",
+							"    pm.expect(result).to.eql(\"Lasantha\");",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"database\":\"users\", \n    \"uri\":\"mongodb://localhost:27017\",\n    \"collection\":\"NewIntake\", \n     \"query\": {\"profession\":\"Doctor\"}, \n     \"projection\":{ \"name\": 1, \"_id\":0}\n                \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8290/mongo/findOne",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8290",
+					"path": [
+						"mongo",
+						"findOne"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8290/mongo/findMany",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"database\":\"users\", \n    \"uri\":\"mongodb://localhost:27017\",\n    \"collection\":\"NewIntake\",\n     \"query\": {\"profession\":\"Saxaphonist\"},\n     \"projection\":{ \"_id\": 0}      \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8290/mongo/findMany",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8290",
+					"path": [
+						"mongo",
+						"findMany"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8290/mongo/updateOne",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"database\":\"users\", \n    \"uri\":\"mongodb://localhost:27017\",\n    \"collection\":\"NewIntake\", \n    \"query\": {\"_id\":\"601133d1007ce6761ae013af\"},\n    \"modification\": {\n\t\t\"$set\": {\n\t\t\t\"age\": \"49\",\n            \"patient\":\"isuruuy\"\n\t\t}\n\t}       \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8290/mongo/updateOne",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8290",
+					"path": [
+						"mongo",
+						"updateOne"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8290/mongo/updateMany2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"database\":\"users\", \n    \"uri\":\"mongodb://localhost:27017\",\n    \"collection\":\"Interns\", \n    \"query\": {\"name\":\"Hector\"},\n    \"modification\": {\n\t\t\"$set\": {\n\t\t\t\"age\": \"48\",\n            \"favouriteFan\":\"isuruuy\"\n\t\t}\n\t}       \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8290/mongo/updateMany2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8290",
+					"path": [
+						"mongo",
+						"updateMany2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AuthenticationEnabled-InsertOne",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"database\":\"users\", \n    \"host\":\"localhost\",\n    \"port\":27017,\n    \"username\":\"isuruuy\",\n    \"password\":\"12342\",\n    \"authSource\":\"users\",\n    \"collection\":\"NewIntake\", \n    \"document\": {\"name\": \"Deewi\", \"age\":5}               \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8290/mongo/insertOneSec",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8290",
+					"path": [
+						"mongo",
+						"insertOneSec"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
